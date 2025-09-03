@@ -20,22 +20,22 @@ export default async function handler(req, res) {
       port: 465,
       secure: true, // SSL
       auth: {
-        user: "noreply@yourdomain.com",
+        user: "no-reply@oldrobloxcorpdataconsole.work.gd",
         pass: process.env.ZOHO_APP_PASSWORD
       }
     });
 
     // Send email to your inbox
     await transporter.sendMail({
-      from: `"Oldroblox Support" <noreply@yourdomain.com>`,
-      to: "you@yourdomain.com", // replace with your inbox
+      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
+      to: "jamesberr16@gmail.com", // replace with your inbox
       subject: "New Support Ticket",
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     });
 
     // Optional: send confirmation to user
     await transporter.sendMail({
-      from: `"Oldroblox Support" <noreply@yourdomain.com>`,
+      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
       to: email,
       subject: "Your Support Ticket is Received",
       text: `Hello ${name},\n\nWe received your support ticket:\n\n${message}\n\n- Oldroblox Support`
