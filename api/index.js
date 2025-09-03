@@ -48,7 +48,7 @@ export default async function handler(req, res) {
       from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
       to: email,
       subject: "Your Support Ticket is Received",
-      text: `Hello ${name},\n\nWe received your support ticket and we will get\n\nThis is a automated message to let you know\n\nthat your support ticket has been submitted\n\n${message}\n\n- Oldroblox Support`
+      text: `Hello ${name},\n\nWe received your support ticket and we will get\n\nThis is a automated message to let you know\n\nthat your support ticket has been submitted\n\npleasewait for an email back from\n\nan employee thank you for understanding.\n\n- Oldroblox Support`
     });
 
     // Respond with success
