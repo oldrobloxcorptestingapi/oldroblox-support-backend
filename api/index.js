@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       port: 465,
       secure: true, // SSL
       auth: {
-        user: "noreply@oldrobloxcorpdataconsole.work.gd", // your Zoho email
+        user: "no-reply@oldrobloxcorpdataconsole.work.gd", // your Zoho email
         pass: process.env.ZOHO_APP_PASSWORD // stored in Vercel env
       }
     });
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
 
     // Optional: send confirmation to user
     await transporter.sendMail({
-      from: `"Oldroblox Support" <noreply@oldrobloxcorpdataconsole.work.gd>`,
+      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
       to: email,
       subject: "Your Support Ticket is Received",
       text: `Hello ${name},\n\nWe received your support ticket:\n\n${message}\n\n- Oldroblox Support`
