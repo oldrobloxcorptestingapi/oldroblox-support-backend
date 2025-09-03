@@ -1,7 +1,17 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  // Only allow POST requests
+  // CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*"); // allow all origins
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // Handle preflight request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // Only accept POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -15,36 +25,36 @@ export default async function handler(req, res) {
 
   try {
     // Create SMTP transporter using Zoho
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       host: "smtp.zoho.com",
       port: 465,
       secure: true, // SSL
       auth: {
-        user: "no-reply@oldrobloxcorpdataconsole.work.gd",
-        pass: process.env.ZOHO_APP_PASSWORD
+        user: "noreply@oldrobloxcorpdataconsole.work.gd", // your Zoho email
+        pass: process.env.ZOHO_APP_PASSWORD // stored in Vercel env
       }
     });
 
-    // Send email to your inbox
+    // Send email to your support inbox
     await transporter.sendMail({
-      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
-      to: "jamesberr16@gmail.com", // replace with your inbox
+      from: `"Oldroblox Support" <noreply@oldrobloxcorpdataconsole.work.gd>`,
+      to: "you@oldrobloxcorpdataconsole.work.gd", // replace with your actual inbox
       subject: "New Support Ticket",
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     });
 
     // Optional: send confirmation to user
     await transporter.sendMail({
-      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
+      from: `"Oldroblox Support" <noreply@oldrobloxcorpdataconsole.work.gd>`,
       to: email,
       subject: "Your Support Ticket is Received",
       text: `Hello ${name},\n\nWe received your support ticket:\n\n${message}\n\n- Oldroblox Support`
     });
 
     // Respond with success
-    res.status(200).json({ success: true });
+    res.status(200).json({ success: true, message: "Ticket sent successfully." });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Failed to send email" });
+    res.status(500).json({ error: "Failed to send email", details: err.message });
   }
 }
