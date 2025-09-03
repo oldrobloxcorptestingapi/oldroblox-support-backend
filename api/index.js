@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
     // Send email to your support inbox
     await transporter.sendMail({
-      from: `"Oldroblox Support" <noreply@oldrobloxcorpdataconsole.work.gd>`,
+      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
       to: "you@oldrobloxcorpdataconsole.work.gd", // replace with your actual inbox
       subject: "New Support Ticket",
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
