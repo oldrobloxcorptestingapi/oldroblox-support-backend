@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; text-align:center;">
           <a href="https://oldrobloxcorpdataconsole.work.gd" target="_blank">
-            <img src="https://oldrobloxcorpdataconsole.work.gd/oldroblox.png" alt="Oldroblox Logo" style="max-width:160px;">
+            <img src="https://oldrobloxcorpdataconsole.work.gd/oldroblox.png" alt="Oldroblox Logo" style="max-width:190px;">
           </a>
           <h2>Thank you for contacting Oldroblox Support!</h2>
           <p>We have received your support ticket:</p>
