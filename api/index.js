@@ -37,17 +37,21 @@ export default async function handler(req, res) {
       subject: "Your Support Ticket Received",
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; text-align:center;">
-          <img src="https://oldrobloxcorpdataconsole.work.gd/oldroblox.png" alt="Oldroblox Logo" style="max-width:150px; margin-bottom:20px;">
+          <a href="https://oldrobloxcorpdataconsole.work.gd" target="_blank">
+            <img src="logo.png" alt="Oldroblox Logo" style="max-width:160px;">
+          </a>
           <h2>Thank you for contacting Oldroblox Support!</h2>
           <p>We have received your support ticket:</p>
           <p><strong>Name:</strong> ${name}</p>
           <p>We’ll get back to you shortly.</p>
           <p>thank you for contacting support.</p>
-          <p></p>
-          <p></p>
-          <p>THANKS</p>
+          <p>this message is automated for you to know that this has been submited</p>
+          <p>you can wait few hours before one of our employees will respond</p>
+          <p>or you can email us or submit during 2PM - 10PM</p>
+          <p>More info on our site by clicking the logo</p>
+          <p>please DO NOT FORCE REPLY</p>
           <hr>
-          <p style="font-size:12px;color:#777;">OldrobloxCorp Support Team</p>
+          <p style="font-size:12px;color:#777;">The OldrobloxCorp Support Team</p>
         </div>
       `
     };
