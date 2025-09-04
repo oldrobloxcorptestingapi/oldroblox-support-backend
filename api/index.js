@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     // Send email to your support inbox
     await transporter.sendMail({
       from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
-      to: "you@oldrobloxcorpdataconsole.work.gd", // replace with your actual inbox
+      to: "no-reply@oldrobloxcorpdataconsole.work.gd", // replace with your actual inbox
       subject: "New Support Ticket",
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     });
@@ -47,8 +47,8 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
       to: email,
-      subject: "Your Support Ticket is Received",
-      text: `Hello ${name},\n\nWe received your support ticket and we will get\n\nThis is a automated message to let you know\n\nthat your support ticket has been submitted\n\npleasewait for an email back from\n\nan employee thank you for understanding.\n\n- Oldroblox Support`
+      subject: "Support ticket",
+      text: `Hello ${name},\n\nWe received your support ticket and we will get\n\nThis is a automated message to let you know\n\nthat your support ticket has been submitted\n\nplease wait for an email back from\n\nan employee thank you for understanding.\n\n- Oldroblox Support`
     });
 
     // Respond with success
