@@ -1,60 +1,64 @@
+// api/send-ticket.js
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   // CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "*"); // allow all origins
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === "OPTIONS") return res.status(200).end();
 
-  // Handle preflight request
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  // Only accept POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, message } = req.body;
-
-  // Validate input
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: "Missing fields" });
-  }
-
   try {
-    // Create SMTP transporter using Zoho
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: "Missing fields" });
+    }
+
+    // Nodemailer transport for Zoho
     const transporter = nodemailer.createTransport({
       host: "smtp.zoho.com",
       port: 465,
-      secure: true, // SSL
+      secure: true,
       auth: {
-        user: "no-reply@oldrobloxcorpdataconsole.work.gd", // your Zoho email
-        pass: process.env.ZOHO_APP_PASSWORD // stored in Vercel env
+        user: "no-reply@oldrobloxcorpdataconsole.work.gd",
+        pass: process.env.ZOHO_APP_PASSWORD
       }
     });
 
-    // Send email to your support inbox
-    await transporter.sendMail({
+    // Email content
+    const mailOptions = {
       from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
-      to: "no-reply@oldrobloxcorpdataconsole.work.gd", // replace with your actual inbox
-      subject: "New Support Ticket",
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    });
+      to: email, // send to user
+      subject: "Your Support Ticket Received",
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333; text-align:center;">
+          <img src="https://oldrobloxcorpdataconsole.work.gd/oldroblox.png" alt="Oldroblox Logo" style="max-width:150px; margin-bottom:20px;">
+          <h2>Thank you for contacting Oldroblox Support!</h2>
+          <p>We have received your support ticket:</p>
+          <p><strong>Name:</strong> ${name}</p>
+          <p>We’ll get back to you shortly.</p>
+          <p>thank you for contacting support.</p>
+          <p></p>
+          <p></p>
+          <p>THANKS</p>
+          <hr>
+          <p style="font-size:12px;color:#777;">OldrobloxCorp Support Team</p>
+        </div>
+      `
+    };
 
-    // Optional: send confirmation to user
-    await transporter.sendMail({
-      from: `"Oldroblox Support" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
-      to: email,
-      subject: "Support ticket",
-      text: `Hello ${name},\n\nWe received your support ticket and we will get\n\nThis is a automated message to let you know\n\nthat your support ticket has been submitted\n\nplease wait for an email back from\n\nan employee thank you for understanding.\n\n- Oldroblox Support`
-    });
+    // Send email
+    await transporter.sendMail(mailOptions);
 
-    // Respond with success
-    res.status(200).json({ success: true, message: "Ticket sent successfully." });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to send email", details: err.message });
+    res.status(200).json({ success: true });
+
+  } catch (error) {
+    console.error("Send email error:", error);
+    res.status(500).json({ error: "Failed to send email" });
   }
 }
