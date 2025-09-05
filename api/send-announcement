@@ -17,18 +17,18 @@ export default async function handler(req, res) {
       port: 465,
       secure: true,
       auth: {
-        user: "noreply@oldrobloxcorpdataconsole.work.gd",
+        user: "no-reply@oldrobloxcorpdataconsole.work.gd",
         pass: process.env.ZOHO_APP_PASSWORD,
       },
     });
 
     const mailOptions = {
-      from: `"Oldroblox Admin" <noreply@oldrobloxcorpdataconsole.work.gd>`,
+      from: `"Oldroblox Announcements" <no-reply@oldrobloxcorpdataconsole.work.gd>`,
       to: recipients.join(","), // multiple emails
       subject: subject,
       html: `
         <div style="font-family: Arial, sans-serif; color:#333;">
-          <img src="https://yourdomain.com/logo.png" alt="Logo" style="max-width:150px;">
+          <img src="https://oldrobloxcorpdataconsole.com/oldroblox.png" alt="Logo" style="max-width:170px;">
           <h2>${subject}</h2>
           <p>${message}</p>
         </div>
