@@ -22,7 +22,7 @@
       subject: "Your Support Ticket Received",
       html: `
         <div style="font-family: Arial, sans-serif; color: #333; text-align:center;">
-          <a href="https://oldrobloxcorpdataconsole.work.gd" target="_blank">
+          <a href="https://oldrobloxcorpdatabaseplusxr-14932265.codehs.me/" target="_blank">
             <img src="https://oldrobloxcorpdataconsole.work.gd/oldroblox.png" alt="Oldroblox Logo" style="max-width:190px;">
           </a>
           <h2>Thank you for contacting Oldroblox Support!</h2>
