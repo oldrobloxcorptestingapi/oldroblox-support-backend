@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     // Email payload for ZeptoMail
     const emailPayload = {
       from: {
-        address: "no-reply@oldrobloxcorpdataconsole.work.gd",
+        address: "Support@oldrobloxcorpdataconsole.work.gd",
         name: "Oldroblox Support"
       },
       to: [
