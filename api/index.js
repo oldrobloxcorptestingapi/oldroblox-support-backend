@@ -62,7 +62,7 @@ export default async function handler(req, res) {
             </p>
             <p>We'll respond to your Ticket as soon as possible. Please note that our support team is available from 2PM - 10PM.</p>
             <p>For assistance in the future, please make sure to contact us here: 
-              <a href="https://oldrobloxcorpdatabaseplusxr-14932265.codehs.me/support" style="color:#1155cc;">support team</a>
+              <a href="https://oldrobloxcorp.wasmer.app/support" style="color:#1155cc;">support team</a>
             </p>
             
             <p>Sincerely,<br>
