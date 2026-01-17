@@ -49,8 +49,8 @@ export default async function handler(req, res) {
           <div style="max-width:700px; margin:auto; background:#fff; border-radius:8px; padding:40px; color:#333; line-height:1.6;">
             
             <!-- Logo -->
-            <a href="https://oldrobloxcorp.wasmer.app" target="_blank">
-              <img src="https://oldrobloxcorp.wasmer.app/oldroblox.png" alt="Oldroblox Logo" style="max-width:190px;">
+            <a href="https://oldrobloxcorperation.wasmer.app" target="_blank">
+              <img src="https://oldrobloxcorperation.wasmer.app/oldroblox.png" alt="Oldroblox Logo" style="max-width:190px;">
             </a>
             
             <!-- Message Body -->
@@ -70,8 +70,8 @@ export default async function handler(req, res) {
             Automatic message</p>
             
             <!-- Footer Logo -->
-            <a href="https://oldrobloxcorpdatabaseplusxr-14932265.codehs.me/" target="_blank">
-              <img src="https://oldrobloxcorp.wasmer.app/oldroblox.png" alt="Oldroblox Logo" style="max-width:140px;">
+            <a href="https://oldrobloxcorperation.wasmer.app" target="_blank">
+              <img src="https://oldrobloxcorperation.wasmer.app/oldroblox.png" alt="Oldroblox Logo" style="max-width:140px;">
             </a>
           </div>
         </div>
